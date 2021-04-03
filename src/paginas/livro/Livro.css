@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+img {
+    height: 250px;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap);
+}
+h4{
+    font-family: "Poppins";
+}
+p{
+    font-family: "Lato";
+}
+.lable{
+    font-family: 'Dela Gothic One';
+}
