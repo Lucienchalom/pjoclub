@@ -1,18 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-
+#livro{
+    margin:15px;
+}
 img {
-    height: 250px;
+    height: 265px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 @font-face {
-    font-family: "Poppins";
+    font-family: 'Poppins';
     src: url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap);
 }
 h4{
-    font-family: "Poppins";
+    font-family: 'Oswald';
+    font-size: 24px;
+    text-align: center;
+    margin: inherit;
+}
+#info{
+    border: 6px solid palegoldenrod;
+    padding: 11px 25px;
+    margin-top: 22px;
 }
 p{
     font-family: "Lato";
 }
 .lable{
-    font-family: 'Dela Gothic One';
+    font-family: "Poppins";
 }
