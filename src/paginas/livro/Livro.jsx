@@ -1,17 +1,29 @@
-import "./Livro.css"
-import { Link } from "react-router-dom";
-export const Livro = (props) => {
-    return (
-        <div id="livro">
-            <Link to = "/">Voltar</Link>
-            <h4>{props.nome}</h4>
-            <img alt={props.nome} src={props.imagem} />
-            <div id="info">
-                <p><strong className="lable">Ano: </strong>{props.ano}</p>
-                <p><strong className="lable">Série: </strong>{props.serie}</p>
-                <p><strong className="lable">Descrição: </strong>{props.descricao}</p>
-                <p><strong className="lable">Número de páginas: </strong>{props.paginas}</p>
-            </div>
-        </div>
-    )
+import { Livro } from '../../component/livro/Livro'
+import { useParams } from "react-router-dom";
+
+export const LivroPage = () => {
+    let { nome } = useParams();
+    const livrorend = livros.find(livro => livro.id === nome)
+    return <Livro {...livrorend} />
 }
+
+const livros = [
+    {
+        id: "ladrao-raios",
+        nome: "Ladrão de raios",
+        ano: 2005,
+        serie: "Os olimpianos",
+        paginas: 350,
+        descricao: "The Lightning Thief é um livro juvenil de fantasia e aventura baseado na mitologia grega, escrito por Rick Riordan. É o primeiro livro da série norte-americana Percy Jackson & the Olympians, que narra a vida do adolescente Percy Jackson que descobre ser um semideus, filho de Poseidon com uma humana.",
+        imagem: "https://i.imgur.com/UyytMwD.jpg"
+    },
+    {
+        id: "mar-monstros",
+        nome: "O Mar de Monstros",
+        ano: 2006,
+        serie: "os olimpianos",
+        paginas: 279,
+        descricao: " Segundo da serie os olimpianos, o trio continua sua aventura atravesando o mar de monstros",
+        imagem: "https://i.imgur.com/w2lIwmf.jpg"
+    }
+]
