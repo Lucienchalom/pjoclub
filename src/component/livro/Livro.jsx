@@ -14,6 +14,11 @@ export const Livro = (props) => {
                 <p><strong className="lable">Descrição: </strong>{props.descricao}</p>
                 <p><strong className="lable">Número de páginas: </strong>{props.paginas}</p>
             </div>
+            {
+                props.paraVenda && (
+                    <Link to={"/vendas/" + props.nome}> A venda </Link>
+                )
+            }
         </div>
     )
 }
@@ -27,4 +32,5 @@ Livro.propTypes = {
 }
 Livro.defaultProps = {
     paginas: 300,
+    paraVenda: false,
 }

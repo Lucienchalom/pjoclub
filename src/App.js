@@ -1,7 +1,8 @@
+import axios from 'axios'
 import './App.css';
 import { LivroPage } from './paginas/livro/Livro'
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,7 +11,9 @@ import {
 } from "react-router-dom";
 
 
+
 export default function App() {
+
   return (
     <Router>
       <div>
@@ -28,16 +31,29 @@ export default function App() {
 }
 
 function Home() {
+  const [livros, setLivros] = useState([])
+
+  useEffect(() => {
+    axios.get("/api/livros").then((response) => {
+      setLivros(response.data)
+      console.log("resultado do servidor:", response)
+    });
+  }, []);
+
+  // proxima aula: fazer o load da home, carregar os dados extras da rota de livro
   return (<div>
     <img alt="Percy Jackson e Os Olimpianos, logo" src="https://imgur.com/g70lQNb.jpg"></img>
     <h2>Arquivo</h2>
     <ul>
-      <li>
-        <Link to="/livro/ladrao-raios">Ladrão de Raios</Link>
-      </li>
-      <li>
-        <Link to="/livro/mar-monstros">O Mar de Monstros</Link>
-      </li>
+      {
+        livros.map((livro)=>{
+          return(
+            <li>
+              <Link to ={"/livro/" + livro._id}> {livro.nome}</Link>
+            </li>
+          )
+        })
+      }
     </ul>
   </div>
   );
