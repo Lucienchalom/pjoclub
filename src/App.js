@@ -9,8 +9,6 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import { func } from 'prop-types';
-
 
 
 export default function App() {
