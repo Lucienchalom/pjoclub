@@ -29,7 +29,7 @@ export default function App() {
   );
 }
 
-function MouseHunt() {
+/*function MouseHunt() {
   const [exibirJournal, setExibirJournal] = useState(true)
   const [exibirDaily, setExibirDaily] = useState(false)
   const [exibirTips, setExibirTips] = useState(false)
@@ -59,7 +59,7 @@ function MouseHunt() {
     {exibirDaily === true && <div><p>conteudo da Daily</p></div>}
     {exibirTips === true && <div><p>conteudo do Tips</p></div>}
   </div>)
-}
+}*/
 
 function Home() {
   const [livros, setLivros] = useState([])
