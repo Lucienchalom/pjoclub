@@ -22,6 +22,7 @@ export const Livro = (props) => {
         </div>
     )
 }
+export default Livro
 Livro.propTypes = {
     nome: PropTypes.string.isRequired,
     imagem: PropTypes.string.isRequired,
