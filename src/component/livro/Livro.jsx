@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 export const Livro = (props) => {
     return (
         <div id="livro">
-            <Link to="/">Voltar</Link>
-            <h4>{props.nome}</h4>
+            <Link to="/" data-testid="link_voltar">Voltar</Link>
+            <h4>{props.nome.toUpperCase()}</h4>
             <img alt={props.nome} src={props.imagem} />
             <div id="info">
                 <p><strong className="lable">Ano: </strong>{props.ano}</p>

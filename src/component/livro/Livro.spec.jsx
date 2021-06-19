@@ -1,6 +1,7 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, cleanup } from '@testing-library/react'
 import { Livro } from './Livro'
 import { BrowserRouter as Router } from "react-router-dom"
+
 
 
 xdescribe("aula de testes do livro", () => {
@@ -28,7 +29,7 @@ xdescribe("aula de testes do livro", () => {
     })
 })
 
-test("deve renderizar componente livro", () => {
+test.skip("deve renderizar componente livro", () => {
     render(
         <Router>
             <Livro
@@ -41,5 +42,55 @@ test("deve renderizar componente livro", () => {
             />
         </Router>
     )
-    screen.debug()
+})
+
+test.skip("deve renderizar link voltar", () => {
+    render(<Router>
+        <Livro
+            nome={""}
+            imagem={""}
+            ano={""}
+            serie={""}
+            descricao={""}
+        />
+    </Router>
+    )
+    screen.findByTestId("link_voltar")
+})
+
+test.skip("deve ter o titulo em maiscula", () => {
+    render(<Router>
+        <Livro
+            nome={"placeholder"}
+            imagem={""}
+            ano={""}
+            serie={""}
+            descricao={""}
+        />
+    </Router>
+    )
+    screen.findByText("PLACEHOLDER")
+})
+
+
+describe("teste das infos", () => {
+    afterEach(cleanup)
+
+    test("deve renderizar as infos", async () => {
+        render(<Router>
+            <Livro
+                nome={""}
+                imagem={""}
+                ano={2021}
+                serie={"testeadores"}
+                descricao={"a aventura de um testador"}
+            />
+        </Router>
+        )
+        await screen.getAllByText(() => "Ano: 2021")
+        await screen.getAllByText(() => "Série: testadores")
+        await screen.getAllByText(() => "Descrição: a aventura de um testador")
+    })
+
+
 })
