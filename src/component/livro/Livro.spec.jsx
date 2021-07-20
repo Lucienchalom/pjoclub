@@ -44,7 +44,7 @@ test.skip("deve renderizar componente livro", () => {
     )
 })
 
-test.skip("deve renderizar link voltar", () => {
+test.skip("deve renderizar link voltar", async () => {
     render(<Router>
         <Livro
             nome={""}
@@ -55,10 +55,10 @@ test.skip("deve renderizar link voltar", () => {
         />
     </Router>
     )
-    screen.findByTestId("link_voltar")
+    await screen.findByTestId("link_voltar")
 })
 
-test.skip("deve ter o titulo em maiscula", () => {
+test.skip("deve ter o titulo em maiscula", async () => {
     render(<Router>
         <Livro
             nome={"placeholder"}
@@ -69,7 +69,7 @@ test.skip("deve ter o titulo em maiscula", () => {
         />
     </Router>
     )
-    screen.findByText("PLACEHOLDER")
+    await screen.findByText("PLACEHOLDER")
 })
 
 
@@ -87,9 +87,9 @@ describe("teste das infos", () => {
             />
         </Router>
         )
-        await screen.getAllByText(() => "Ano: 2021")
-        await screen.getAllByText(() => "Série: testadores")
-        await screen.getAllByText(() => "Descrição: a aventura de um testador")
+        screen.getAllByText(() => "Ano: 2021")
+        screen.getAllByText(() => "Série: testadores")
+        screen.getAllByText(() => "Descrição: a aventura de um testador")
     })
 
 

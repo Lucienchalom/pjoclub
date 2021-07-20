@@ -110,12 +110,12 @@ function Home() {
           )
         })
       }
-      {ocorreuErro == true &&
+      {ocorreuErro === true &&
       <div>
          <p>{mensagemErro} </p>
          <button onClick={onClickRecarregar}>Recarregar</button>
       </div>}
-      {carregamento == true && <p> carregando </p>}
+      {carregamento === true && <p> carregando </p>}
 
     </ul>
   </div>
