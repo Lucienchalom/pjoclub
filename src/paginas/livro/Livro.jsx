@@ -1,23 +1,22 @@
-import axios from 'axios'
-import { Livro } from '../../component/livro/Livro'
+import axios from "axios";
+import { Livro } from "../../component/livro/Livro";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export const LivroPage = () => {
-    
-    let { id } = useParams();
-    
-    const [livro,setLivro] = useState({})
-    useEffect(() =>{
-        axios.get("/api/livros/"+id).then((response) =>{
-            setLivro(response.data)
-            console.log("resultado do servidor:", response)
+  let { id } = useParams();
 
-        })
-    },[])
-    
-    return <Livro {...livro} />
-}
+  const [livro, setLivro] = useState({});
+  useEffect(() => {
+    axios.get("/api/livros/" + id).then((response) => {
+      setLivro(response.data);
+      console.log("resultado do servidor:", response);
+    });
+    // eslint-disable-next-line
+  }, []);
+
+  return <Livro {...livro} />;
+};
 
 // const livros = [
 //     {

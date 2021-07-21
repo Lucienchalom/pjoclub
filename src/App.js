@@ -96,7 +96,6 @@ function Home() {
   }
 
 
-  // proxima aula: fazer o load da home, carregar os dados extras da rota de livro
   return (<div>
     <img alt="Percy Jackson e Os Olimpianos, logo" src="https://imgur.com/g70lQNb.jpg"></img>
     <h2>Arquivo</h2>
