@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Livro } from "../../component/livro/Livro";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const LivroPage = () => {
   let { id } = useParams();
@@ -12,7 +12,6 @@ export const LivroPage = () => {
       setLivro(response.data);
       console.log("resultado do servidor:", response);
     });
-    // eslint-disable-next-line
   }, []);
 
   return <Livro {...livro} />;

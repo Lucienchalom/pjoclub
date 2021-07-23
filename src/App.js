@@ -67,7 +67,7 @@ function Home() {
   const [ocorreuErro, setOcorreuErro] = useState(false)
   const [mensagemErro, setMensagemErro] = useState("Ocorreu um erro, tente mais tarde")
 
-  const carregarLivros = () =>{
+  const carregarLivros = () => {
     const callbackSucesso = (response) => {
       setLivros(response.data)
       console.log("resultado do servidor:", response)
@@ -89,7 +89,7 @@ function Home() {
     carregarLivros()
   }, []);
 
-  const onClickRecarregar= () =>{
+  const onClickRecarregar = () => {
     setCarregar(true)
     setOcorreuErro(false)
     carregarLivros()
@@ -103,17 +103,17 @@ function Home() {
       {
         livros.map((livro) => {
           return (
-            <li>
+            <li key={livro._id}>
               <Link to={"/livro/" + livro._id}> {livro.nome}</Link>
             </li>
           )
         })
       }
       {ocorreuErro === true &&
-      <div>
-         <p>{mensagemErro} </p>
-         <button onClick={onClickRecarregar}>Recarregar</button>
-      </div>}
+        <div>
+          <p>{mensagemErro} </p>
+          <button onClick={onClickRecarregar}>Recarregar</button>
+        </div>}
       {carregamento === true && <p> carregando </p>}
 
     </ul>

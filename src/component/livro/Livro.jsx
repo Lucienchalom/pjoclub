@@ -1,3 +1,4 @@
+import React from "react";
 import "./Livro.css"
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
@@ -6,7 +7,7 @@ export const Livro = (props) => {
     return (
         <div id="livro">
             <Link to="/" data-testid="link_voltar">Voltar</Link>
-            <h4>{props.nome.toUpperCase()}</h4>
+            <h4>{props.nome}</h4>
             <img alt={props.nome} src={props.imagem} />
             <div id="info">
                 <p><strong className="lable">Ano: </strong>{props.ano}</p>
@@ -30,6 +31,7 @@ Livro.propTypes = {
     serie: PropTypes.string.isRequired,
     descricao: PropTypes.string.isRequired,
     paginas: PropTypes.number,
+    paraVenda: PropTypes.bool,
 }
 Livro.defaultProps = {
     paginas: 300,
